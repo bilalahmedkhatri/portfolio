@@ -49,7 +49,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'templates',
-            os.path.join(BASE_DIR, 'front_app'),
+            str(BASE_DIR.joinpath('Portfolio_front_app')),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -116,9 +116,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/static/'
 
 STATICFILES_DIRS = [
-    # os.path.join(BASE_DIR, 'portfolio/portfolio_api/templates/front_app/static'),  # for APP6 FRONTEND
-    os.path.join(BASE_DIR, 'front_app', 'static'),  # for APP6 FRONTEND
-    os.path.join(BASE_DIR, 'front_app', 'assets'),  # for APP6 FRONTEND
+    str(BASE_DIR.joinpath('Portfolio_front_app/static')),  # for APP6 FRONTEND
+    # os.path.join(BASE_DIR, 'Portfolio_front_app', 'static'),  # for APP6 FRONTEND
     BASE_DIR / 'static',
 ]
 

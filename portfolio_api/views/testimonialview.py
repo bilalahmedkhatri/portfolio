@@ -26,5 +26,6 @@ def testimonial_view(request):
         serializer = TestimonialFormSerializer(data=data_)
         if serializer.is_valid():
             serializer.save()
+            print('serialize: ', serializer)
             return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
