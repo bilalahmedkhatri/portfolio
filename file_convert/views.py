@@ -1,3 +1,4 @@
+from sys import prefix
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
@@ -18,7 +19,7 @@ import io
 
 class ViewConvertFile(View):
     form_class = CreateForm
-    template_name = 'file_upload.html'
+    template_name = 'pages/main_page.html'
     
     def get(self, request):
         form = CreateForm()
@@ -50,6 +51,7 @@ def download_file(request, id):
     get_para = ConvertFile.get_model(id)
     para = doc.add_paragraph(get_para.get_text)
     para.alignment = enum.text.WD_ALIGN_PARAGRAPH.JUSTIFY
+    print('failed \n')
     response = HttpResponse(content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
     response['Content-Disposition'] = 'attechment; filename=download.docx'
     doc.save(response)

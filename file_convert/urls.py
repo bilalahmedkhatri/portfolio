@@ -5,7 +5,7 @@ from .views import ViewConvertFile, download_file, front
 
 
 urlpatterns = [
-    path('file-to-doc/', ViewConvertFile.as_view(), name="file_to_doc"),
+    path('file-to-doc-demo/', ViewConvertFile.as_view(), name="file_to_doc"),
     path('file-to-<int:id>', download_file, name="downloadfile"),
     path('', front, name="front"),
     

@@ -1,0 +1,47 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block MainBody %}
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="row g-3 mt-5 align-items-center">
+
+        <div class="mx-auto mt-5" style="max-width: 600px;">
+            {% if file_converted != True %}
+            <p class="fs-2 text-center">Upload any image file, from anywhere</p>
+            <div class="m-5">
+                <P class="cus_paragraph">A JavaScript library that can upload anything you throw at it, optimizes images
+                    for faster uploads, and offers a great, accessible, silky smooth user experience. </P>
+            </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="m-5 p-2 mx-auto rounded-3" style="max-width: 350px;">
+                        <div class="mb-3">
+                            <div style="text-align: center">
+                                <label for="formFile" class="form-label">Select File</label>
+                            </div>
+                            {{form.file_upload }}
+                            <div class="d-grid gap-5 mt-3 w-50 mx-auto">
+                                <button class="btn btn-primary" type="submit">Convert</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                {% if messages %}
+                <ul class="messages">
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                </ul>
+                {% endif %}
+            {% else %}
+            <p class="fs-2 text-center">Your Image file is converted</p>
+            <div class="m-5">
+                <P class="cus_paragraph">Thanks for use this. I need your feedback to make better for public use please feel free to suggest me that - <string> Whats need more to make it perfect </strong> - then i'll do my best. </P>
+                <a class="btn btn-success" href="{% url 'downloadfile' id %}">Click Downlaod</a>
+                <a class="btn btn-default" href="https://www.facebook.com/bilalahmeddev/">Message ME</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock MainBody %}

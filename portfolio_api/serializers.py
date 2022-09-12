@@ -8,7 +8,6 @@ class ContactFormSerializer(serializers.ModelSerializer):
         fields = ['full_name', 'email', 'subject', 'message', 'date_time', 'ip_address', 'city', 'country']
 
 
-
 class TestimonialFormSerializer(serializers.ModelSerializer):
     class Meta:
         model = TestimonialModel
