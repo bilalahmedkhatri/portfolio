@@ -5,8 +5,8 @@ from .views import ViewConvertFile, download_file, front
 
 
 urlpatterns = [
-    path('file-to-doc-demo/', ViewConvertFile.as_view(), name="file_to_doc"),
-    path('file-to-<int:id>', download_file, name="downloadfile"),
+    path('demo/image-to-doc/', ViewConvertFile.as_view(), name="file_to_doc"),
+    path('demo/image-to-<int:id>', download_file, name="downloadfile"),
     path('', front, name="front"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -51,7 +51,6 @@ def download_file(request, id):
     get_para = ConvertFile.get_model(id)
     para = doc.add_paragraph(get_para.get_text)
     para.alignment = enum.text.WD_ALIGN_PARAGRAPH.JUSTIFY
-    print('failed \n')
     response = HttpResponse(content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
     response['Content-Disposition'] = 'attechment; filename=download.docx'
     doc.save(response)

@@ -1,5 +1,8 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +16,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bilalahmed-dev.azeemlab.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bilalahmed-dev.azeemlab.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -108,20 +111,20 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = '/static/'
+STATIC_URL = 'static/'
+STATIC_ROOT = 'static/'
 
 # static root for hosting file directory
 # STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
-STATICFILES_DIRS = [
-    str(BASE_DIR.joinpath('Portfolio_front_app/static')),  # for APP6 FRONTEND
-    str(BASE_DIR.joinpath('static')),
-]
+if DEBUG:
+    STATICFILES_DIRS = [
+        str(BASE_DIR.joinpath('Portfolio_front_app/static')),  # for APP6 FRONTEND
+        str(BASE_DIR.joinpath('static')),
+    ]
 
 MEDIA_URL = '/test/urls/image/'
 MEDIA_ROOT = str(BASE_DIR.joinpath("media"))
