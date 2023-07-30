@@ -1,6 +1,10 @@
 from pathlib import Path
 import os
+
+
 from dotenv import load_dotenv
+from django.core.management.utils import get_random_secret_key
+RANDOM_KEY = get_random_secret_key()
 
 load_dotenv()
 
@@ -11,12 +15,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+# SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = RANDOM_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bilalahmed-dev.azeemlab.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bilalahmed-dev.azeemlab.com', '.vercel.app']
 
 # Application definition
 INSTALLED_APPS = [
@@ -115,10 +120,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static/'
+# STATIC_ROOT = 'static/'
 
 # static root for hosting file directory
-# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
 if DEBUG:
     STATICFILES_DIRS = [
@@ -135,7 +140,9 @@ MEDIA_ROOT = str(BASE_DIR.joinpath("media"))
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    os.getenv('CORS_ALLOWED_ORIGINS_API'),
+    'https://127.0.0.1:3000',
+    'https://localhost:3000',
+    # str(os.getenv('CORS_ALLOWED_ORIGINS_API')),
 ]
 
 REST_FRAMEWORK = {
