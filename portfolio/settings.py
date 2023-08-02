@@ -3,6 +3,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+print('address > ', os.getenv('CORS_ALLOWED_ORIGINS_API'))
+print('kEY > ', os.getenv('DJANGO_SECRET_KEY'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,6 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+print('key', SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -118,7 +121,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = 'static/'
 
 # static root for hosting file directory
-# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
 if DEBUG:
     STATICFILES_DIRS = [
@@ -134,9 +137,7 @@ MEDIA_ROOT = str(BASE_DIR.joinpath("media"))
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
-    os.getenv('CORS_ALLOWED_ORIGINS_API'),
-]
+CORS_ORIGIN_WHITELIST = [os.getenv('CORS_ALLOWED_ORIGINS_API')]
 
 REST_FRAMEWORK = {
     # Testing api format
