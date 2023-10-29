@@ -1,9 +1,9 @@
 from pathlib import Path
 import os
-
-
 from dotenv import load_dotenv
 from django.core.management.utils import get_random_secret_key
+
+
 RANDOM_KEY = get_random_secret_key()
 
 load_dotenv()
@@ -19,10 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = RANDOM_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bilalahmed-dev.azeemlab.com', '.vercel.app']
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', "104.248.240.38",
+                 '.vercel.app',  '.now.sh']
 # Application definition
 INSTALLED_APPS = [
     'rest_framework',
@@ -73,14 +73,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
-
+# print("hostname ", os.environ.get("PORTFOLIO_DB_HOST"))
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get("PORTFOLIO_DB_NAME"),
+        'USER': os.environ.get("PORTFOLIO_DB_USER"),
+        'PASSWORD': os.environ.get("PORTFOLIO_DB_PASSWORD"),
+        'HOST': os.environ.get("PORTFOLIO_DB_HOST"),
+        'PORT': os.environ.get("PORTFOLIO_DB_PORT"),
+    },
 }
 
 
