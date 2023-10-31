@@ -21,7 +21,7 @@ SECRET_KEY = RANDOM_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', "104.248.240.38",
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', "104.248.240.38", "192.168.100.84",
                  '.vercel.app',  '.now.sh']
 # Application definition
 INSTALLED_APPS = [
@@ -78,15 +78,22 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
 
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("PORTFOLIO_DB_NAME"),
-        'USER': os.environ.get("PORTFOLIO_DB_USER"),
-        'PASSWORD': os.environ.get("PORTFOLIO_DB_PASSWORD"),
-        'HOST': os.environ.get("PORTFOLIO_DB_HOST"),
-        'PORT': os.environ.get("PORTFOLIO_DB_PORT"),
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'postgres',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'postgre',
+        # 'HOST': '120.0.0.1',
+        # 'PORT': 5432,
+
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': os.environ.get("PORTFOLIO_DB_NAME"),
+        # 'USER': os.environ.get("PORTFOLIO_DB_USER"),
+        # 'PASSWORD': os.environ.get("PORTFOLIO_DB_PASSWORD"),
+        # 'HOST': os.environ.get("PORTFOLIO_DB_HOST"),
+        # 'PORT': os.environ.get("PORTFOLIO_DB_PORT"),
     },
 }
 
@@ -127,10 +134,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = 'static/'
 
 # static root for hosting file directory
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
 
 if DEBUG:
     STATICFILES_DIRS = [
