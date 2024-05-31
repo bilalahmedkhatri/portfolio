@@ -5,7 +5,7 @@ from django.core.management.utils import get_random_secret_key
 
 
 RANDOM_KEY = get_random_secret_key()
-
+print("key :", RANDOM_KEY)
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -130,7 +130,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# *ic files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = 'static/'
@@ -146,6 +146,7 @@ if DEBUG:
 
 MEDIA_URL = '/test/urls/image/'
 MEDIA_ROOT = str(BASE_DIR.joinpath("media"))
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
