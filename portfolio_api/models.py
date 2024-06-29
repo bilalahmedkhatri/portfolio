@@ -66,3 +66,32 @@ class HashedLink(models.Model):
 
     def __str__(self):
         return self.date_time
+    
+
+class ProjectsModel(models.Model):
+    title = models.CharField(max_length=100, blank=True, null=True)
+    description = models.TextField(max_length=100, blank=True, null=True)
+    refrence = models.CharField(max_length=100, blank=True, null=True)
+    STATUS = (
+        ('PS', 'Posted'),
+        ("PN", "Pending"),
+    )
+    status = models.CharField(
+        max_length=2, choices=STATUS, default="RE")
+    created_date = models.DateField(auto_now_add=True)
+    updated_date = models.DateField(auto_now=True)
+
+    def file_upload_add(instance, file_upload):
+        date_time = datetime.now()
+        char = get_random_string(length=10)
+        file_extension = file_upload.split('.')[1]
+        file_upload = f"{date_time.day}_{char}.{file_extension}"
+        path_formated = f"{date_time.year}/{date_time.month}/"
+        path = path_formated + file_upload
+        return path
+
+    image = models.ImageField(
+        upload_to=file_upload_add, blank=True, null=True)
+
+    def __str__(self):
+        return self.title

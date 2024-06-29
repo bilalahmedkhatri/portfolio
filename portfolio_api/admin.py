@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactFormModel, TestimonialModel
+from .models import ContactFormModel, TestimonialModel, ProjectsModel
 # Register your models here.
 
 
@@ -11,3 +11,7 @@ class ContactFormAdmin(admin.ModelAdmin):
 @admin.register(TestimonialModel)
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'designation', 'company',)
+    
+@admin.register(ProjectsModel)
+class ProjectsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'refrence', 'created_date', 'status',)

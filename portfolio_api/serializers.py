@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ContactFormModel, TestimonialModel
+from .models import ContactFormModel, TestimonialModel, ProjectsModel
 
 
 class ContactFormSerializer(serializers.ModelSerializer):
@@ -14,3 +14,9 @@ class TestimonialFormSerializer(serializers.ModelSerializer):
         model = TestimonialModel
         fields = ['full_name', 'designation', 'company', 'website', 'message', 'social_media',
                   'freelance_profile', 'recommendation', 'created_date', 'status', 'test_image_02']
+        
+class ProjectsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProjectsModel
+        fields = ['title', 'description', 'refrence','status',
+                  'created_date', 'image']

@@ -141,7 +141,7 @@ if DEBUG:
         str(BASE_DIR.joinpath('static')),
     ]
 
-MEDIA_URL = '/test/urls/image/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath("media"))
 
 
@@ -151,8 +151,8 @@ MEDIA_ROOT = str(BASE_DIR.joinpath("media"))
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    'https://127.0.0.1:3000',
-    'https://localhost:3000',
+    'http://127.0.0.1:3000',
+    'http://localhost:3000',
     # str(os.getenv('CORS_ALLOWED_ORIGINS_API')),
 ]
 

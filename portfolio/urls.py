@@ -15,6 +15,6 @@ urlpatterns = [
     url(r'^static/(?P<path>.*)$', serve,
         {'document_root': settings.STATIC_ROOT}),
     path('admin/', admin.site.urls),
-    path('', include('portfolio_api.urls')),
+    path('api-portfolio/', include('portfolio_api.urls')),
     path('', include('file_convert.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
