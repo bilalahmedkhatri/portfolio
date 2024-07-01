@@ -92,6 +92,7 @@ class ProjectsModel(models.Model):
 
     image = models.ImageField(
         upload_to=file_upload_add, blank=True, null=True)
+    video = models.URLField(max_length=256, blank=True, null=True)
 
     def __str__(self):
         return self.title

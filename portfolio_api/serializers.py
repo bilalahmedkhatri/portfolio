@@ -18,5 +18,5 @@ class TestimonialFormSerializer(serializers.ModelSerializer):
 class ProjectsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectsModel
-        fields = ['title', 'description', 'refrence','status',
+        fields = ['title', 'description', 'refrence', 'video', 'status',
                   'created_date', 'image']
