@@ -77,7 +77,7 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
 
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': 'uihxzefkgh_portfolio',
         'USER': 'uihxzefkgh_admin',
         'PASSWORD': 'IhqYAj)+XRRJ',
