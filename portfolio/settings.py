@@ -1,7 +1,6 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-from django.core.management.utils import get_random_secret_key
 
 
 load_dotenv()
@@ -16,9 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = os.getenv('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['bilalahmed.dev', 'localhost']
+ALLOWED_HOSTS = ['www.bilalahmed.dev', 'bilalahmed.dev', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
@@ -78,12 +77,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
 
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'postgres',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'postgre',
-        # 'HOST': '120.0.0.1',
-        # 'PORT': 5432,
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'uihxzefkgh_portfolio',
+        'USER': 'uihxzefkgh_admin',
+        'PASSWORD': 'IhqYAj)+XRRJ',
+        'HOST': '120.0.0.1',
+        'PORT': 3306,
 
         # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'NAME': os.environ.get("PORTFOLIO_DB_NAME"),
