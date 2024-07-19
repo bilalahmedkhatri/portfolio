@@ -16,7 +16,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.getenv('DEBUG', default=False)
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['www.gitapp.bilalahmed.dev', 'gitapp.bilalahmed.dev', 'localhost']
@@ -136,11 +136,10 @@ STATIC_URL = 'static/'
 # static root for hosting file directory
 STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
 
-if DEBUG:
-    STATICFILES_DIRS = [
-        str(BASE_DIR.joinpath('Portfolio_front_app/static')),  # for APP6 FRONTEND
-        str(BASE_DIR.joinpath('static')),
-    ]
+STATICFILES_DIRS = [
+    str(BASE_DIR.joinpath('Portfolio_front_app/static')),  # for APP6 FRONTEND
+    str(BASE_DIR.joinpath('static')),
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath("media"))
