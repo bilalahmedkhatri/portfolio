@@ -16,7 +16,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.getenv('DEBUG', default=False)
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['www.gitapp.bilalahmed.dev', 'gitapp.bilalahmed.dev', 'localhost']
@@ -76,15 +76,15 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
 
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'uihxzefkgh_portfolio',
-        'USER': 'uihxzefkgh_admin',
-        'PASSWORD': 'IhqYAj)+XRRJ',
-        'HOST': '120.0.0.1',
-        'PORT': 3306,
+        # 'ENGINE': 'mysql.connector.django',
+        # 'NAME': 'uihxzefkgh_portfolio',
+        # 'USER': 'uihxzefkgh_admin',
+        # 'PASSWORD': 'IhqYAj)+XRRJ',
+        # 'HOST': '120.0.0.1',
+        # 'PORT': 3306,
 
         # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'NAME': os.environ.get("PORTFOLIO_DB_NAME"),
