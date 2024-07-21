@@ -1,9 +1,9 @@
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
-PassengerAppRoot "/home/uihxzefkgh/gitapp.bilalahmed.dev"
+PassengerAppRoot "/home/uihxzefkgh/bilalahmed.dev"
 PassengerBaseURI "/"
-PassengerPython "/home/uihxzefkgh/virtualenv/gitapp.bilalahmed.dev/3.10/bin/python"
+PassengerPython "/home/uihxzefkgh/virtualenv/bilalahmed.dev/3.10/bin/python"
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
 # DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
 <IfModule Litespeed>
 </IfModule>
-# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END((gitapp.bilalahmed.dev:3.10)) 
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END((bilalahmed.dev:3.10)) 
