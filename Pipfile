@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 mysql-connector-python = "*"
+pywhatkit = "*"
+linkedin-api-client = "*"
+python-dotenv = "*"
+beautifulsoup4 = "*"
 
 [dev-packages]
 
